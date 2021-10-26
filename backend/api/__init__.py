@@ -2,6 +2,9 @@ import os
 
 from flask import Flask
 from flask_mongoengine import MongoEngine
+from flask_jwt_extended import JWTManager
+from datetime import timedelta
+
 
 # from flask import Response, request
 
@@ -17,15 +20,20 @@ def create_app():
         'password': os.environ['MONGODB_PASSWORD'],
         'db': 'webapp'
     }
+    app.config["JWT_SECRET_KEY"] = os.environ["JWT_SECRET_KEY"]
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
+    app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=15)
+    
     from .routes import auth
     app.register_blueprint(auth.auth_bluprint)
-
 
     from .routes import user
     app.register_blueprint(user.user_bluprint)
 
 
     db.init_app(app)
+
+    JWTManager(app)
 
 
     return app
