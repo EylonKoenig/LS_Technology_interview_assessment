@@ -10,7 +10,7 @@ class User(db.Document):
     firstName = db.StringField(max_length=60)
     lastName = db.StringField(max_length=60)
     email = db.EmailField(required=True)
-    password = db.StringField(max_length=60, required=True)
+    password = db.StringField(max_length=512, required=True)
     phone = db.StringField(max_length=60)
     address = db.StringField(max_length=60)
     roll = db.StringField(max_length=60)
