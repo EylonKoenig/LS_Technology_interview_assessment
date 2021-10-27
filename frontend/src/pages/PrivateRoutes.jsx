@@ -1,10 +1,14 @@
 import React from "react";
-import { Switch } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Switch, Route } from "react-router-dom";
+
+import Users from "./Users";
 
 const PrivateRoutes = () => {
-  const user = useSelector((state) => state.auth.user);
-  return <Switch></Switch>;
+  return (
+    <Switch>
+      <Route exact path="/users" component={Users} />
+    </Switch>
+  );
 };
 
 export default PrivateRoutes;
