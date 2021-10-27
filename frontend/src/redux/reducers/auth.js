@@ -8,12 +8,10 @@ export default function auth_reducer(state = INITIAL_STATE, action) {
   const { type, payload } = action;
   switch (type) {
     case "USER_LOADED":
-      delete payload["technologies"];
       return {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: { ...state.user, ...payload },
       };
     case "LOADING_USER":
       return {
