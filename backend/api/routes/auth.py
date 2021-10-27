@@ -3,17 +3,17 @@ from ..models import User
 from flask import Blueprint, Response, request, jsonify
 
 from passlib.hash import pbkdf2_sha512
+from flask_cors import cross_origin
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import create_refresh_token
 from flask_jwt_extended import jwt_required
 
 
-
 auth_bluprint = Blueprint('auth', __name__)
 
 
+# @cross_origin(supports_credentials=True)
 @auth_bluprint.route('/register', methods=['POST'])
-@jwt_required()
 def register():
     if request.method == 'POST':
         content = request.json
@@ -32,8 +32,8 @@ def register():
         return Response('Successfully created', status=201)
 
 
-@auth_bluprint.route('/login', methods=['POST'])
-@jwt_required()
+@auth_bluprint.route('/login',  methods=['POST', 'OPTIONS'])
+@cross_origin(supports_credentials=True)
 def login():
     if request.method == 'POST':
         email = request.json.get("email")
@@ -46,9 +46,10 @@ def login():
             access_token = create_access_token(identity=email)
             refresh_token = create_refresh_token(identity=email)
             return jsonify(access_token=access_token, refresh_token=refresh_token)
-        return Response('Successfully created', status=401)
+        return Response('Unauthorized', status=401)
         
 
+# @cross_origin(supports_credentials=True)
 @auth_bluprint.route("/test", methods=["GET"])
 @jwt_required()
 def protected():

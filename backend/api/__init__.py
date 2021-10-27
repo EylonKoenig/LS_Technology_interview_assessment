@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from flask_mongoengine import MongoEngine
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
@@ -14,6 +15,8 @@ db = MongoEngine()
 
 def create_app():
     app = Flask(__name__)
+    CORS(app, resources={r"/*": {"origins": "*"}})    
+    
     app.config['MONGODB_SETTINGS'] = {
         'host': os.environ['MONGODB_HOST'],
         'username': os.environ['MONGODB_USERNAME'],
@@ -34,6 +37,7 @@ def create_app():
     db.init_app(app)
 
     JWTManager(app)
+
 
 
     return app
