@@ -14,11 +14,11 @@ const App = () => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   (async function fetchUser() {
-  //     const res = await loadUser(dispatch);
-  //   })();
-  // }, [dispatch]);
+  useEffect(() => {
+    (async function fetchUser() {
+      await loadUser(dispatch);
+    })();
+  }, [dispatch]);
   return (
     <div className="App">
       {auth.loading ? (
