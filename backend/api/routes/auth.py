@@ -7,6 +7,7 @@ from flask_cors import cross_origin
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import create_refresh_token
 from flask_jwt_extended import jwt_required
+from flask_jwt_extended import get_jwt_identity
 
 
 auth_bluprint = Blueprint('auth', __name__)
@@ -48,6 +49,13 @@ def login():
             return jsonify(access_token=access_token, refresh_token=refresh_token)
         return Response('Unauthorized', status=401)
         
+@auth_bluprint.route("/refresh", methods=["POST"])
+@jwt_required(refresh=True)
+def refresh():
+    identity = get_jwt_identity()
+    access_token = create_access_token(identity=identity)
+    return jsonify(access_token=access_token)
+
 
 # @cross_origin(supports_credentials=True)
 @auth_bluprint.route("/test", methods=["GET"])
