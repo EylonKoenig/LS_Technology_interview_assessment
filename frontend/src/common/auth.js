@@ -31,6 +31,21 @@ export const loadUser = async (dispatch) => {
     }
   } catch (err) {}
 };
+
+export const registerUser = async (inputData, dispatch) => {
+  try {
+    const response = await api.post("/register", inputData);
+    if (response.status === 201) {
+      const { access_token, refresh_token } = response.data;
+      setToken(access_token, refresh_token);
+      dispatch({
+        type: "USER_LOADED",
+      });
+    }
+    return response.status;
+  } catch (err) {}
+};
+
 export const setToken = (access_token, refresh_token) => {
   if ((access_token, refresh_token)) {
     api.defaults.headers.common["Authorization"] = "Bearer " + access_token;
