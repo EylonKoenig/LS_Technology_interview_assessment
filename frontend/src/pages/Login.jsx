@@ -8,6 +8,8 @@ const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [form, setForm] = useState({});
+  const [passwordShow, setPasswordShow] = useState(false);
+
   const redirectToRegister = () => {
     history.push("/register");
   };
@@ -48,7 +50,14 @@ const Login = () => {
                 type="text"
                 name="password"
                 onChange={(e) => handleChange(e)}
+                type={passwordShow ? "text" : "password"}
                 required
+              />
+              <img
+                as="button"
+                className="view-svg"
+                onClick={() => setPasswordShow(!passwordShow)}
+                src={passwordShow ? "/svg/view off.svg" : "/svg/view.svg"}
               />
               <label>Password</label>
             </div>
