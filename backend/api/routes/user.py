@@ -9,20 +9,20 @@ user_bluprint = Blueprint('user', __name__)
 
 
 
-@user_bluprint.route("/users",methods=['GET'])
+@user_bluprint.route("/employees",methods=['GET'])
 @jwt_required()
 def get_users():
-    users = User.objects().to_json()
+    users = User.objects().only('email','firstName','lastName','group','created').to_json()
     return Response(users, mimetype="application/json", status=200)
 
-@user_bluprint.route("/users",methods=['DELETE'])
+@user_bluprint.route("/employees",methods=['DELETE'])
 @jwt_required()
 def delete_users():
     User.objects().delete()
     return Response(mimetype="application/json", status=200)
 
 
-@user_bluprint.route("/user",methods=['PUT'])
+@user_bluprint.route("/employee",methods=['PUT'])
 @jwt_required()
 def update_user():
     if request.method == 'PUT':
