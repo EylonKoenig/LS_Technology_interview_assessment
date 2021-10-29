@@ -133,6 +133,7 @@ code {
   cursor: pointer;
 }
 
+
 @media (min-width: 480px) {
   .login-wrapper {
     align-items: start;
