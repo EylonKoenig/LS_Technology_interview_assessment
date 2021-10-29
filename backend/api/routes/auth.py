@@ -42,19 +42,20 @@ def login():
         
         if email is None or password is None:
             return Response('Credentials are missing', status=401)
-        user = User.objects(email=email,isActive=True).first()
+        user = User.objects(email=email,isActive=True).only('email','firstName','lastName','group','created').first()
         if user and pbkdf2_sha512.verify(password, user.password):
             access_token = create_access_token(identity=email)
             refresh_token = create_refresh_token(identity=email)
-            return jsonify(access_token=access_token, refresh_token=refresh_token)
+            return jsonify(user=user, access_token=access_token, refresh_token=refresh_token)
         return Response('Unauthorized', status=401)
         
 @auth_bluprint.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)
 def refresh():
     identity = get_jwt_identity()
+    user = User.objects(email=identity).only('email','firstName','lastName','group','created').first()
     access_token = create_access_token(identity=identity)
-    return jsonify(access_token=access_token)
+    return jsonify(user = user, access_token=access_token)
 
 
 # @cross_origin(supports_credentials=True)
