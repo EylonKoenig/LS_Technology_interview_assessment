@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     const res = await registerUser(form, dispatch);
     if (res === 201) {
-      history.push("/users");
+      history.push("/employees");
     }
   };
 
@@ -85,6 +85,7 @@ const Register = () => {
                 className="view-svg"
                 onClick={() => setPasswordShow(!passwordShow)}
                 src={passwordShow ? "/svg/view off.svg" : "/svg/view.svg"}
+                alt="view-svg"
               />
               <label>Password</label>
             </div>
@@ -101,6 +102,7 @@ const Register = () => {
                 className="view-svg"
                 onClick={() => setPasswordConfimShow(!passwordConfimShow)}
                 src={passwordShow ? "/svg/view off.svg" : "/svg/view.svg"}
+                alt="view-svg"
               />
               <label>Retype Password</label>
             </div>

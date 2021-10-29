@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "./App.css";
-import "./index.css";
-import "./input.css";
+import "./styles/App.css";
+import "./styles/index.css";
+import "./styles/input.css";
 
 import { loadUser } from "./common/auth";
 

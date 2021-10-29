@@ -8,6 +8,7 @@ export const loginUser = async (inputData, dispatch) => {
     if (response.status === 200) {
       dispatch({
         type: "USER_LOADED",
+        payload: response.data.user,
       });
     }
     return response.status;
@@ -26,6 +27,7 @@ export const loadUser = async (dispatch) => {
         setToken(access_token, refresh_token);
         dispatch({
           type: "USER_LOADED",
+          payload: response.data.user,
         });
       }
     }

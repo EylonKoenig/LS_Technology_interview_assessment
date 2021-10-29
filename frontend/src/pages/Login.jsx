@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     const res = await loginUser(form, dispatch);
     if (res === 200) {
-      history.push("/users");
+      history.push("/employees");
     }
   };
   return (
@@ -47,7 +47,6 @@ const Login = () => {
 
             <div className="group">
               <input
-                type="text"
                 name="password"
                 onChange={(e) => handleChange(e)}
                 type={passwordShow ? "text" : "password"}
@@ -58,6 +57,7 @@ const Login = () => {
                 className="view-svg"
                 onClick={() => setPasswordShow(!passwordShow)}
                 src={passwordShow ? "/svg/view off.svg" : "/svg/view.svg"}
+                alt="view-svg"
               />
               <label>Password</label>
             </div>

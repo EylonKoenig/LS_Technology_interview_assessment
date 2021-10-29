@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
+import employees from "./employess";
 
 const appReducer = combineReducers({
   auth,
+  employees,
 });
 
 const rootReducer = (state, action) => {
