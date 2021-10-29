@@ -1,12 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Users from "./Users";
+import Employees from "./Employees";
 
 const PrivateRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/users" component={Users} />
+      <Route exact path="/employees" component={Employees} />
+      <Route exact component={Employees} />
     </Switch>
   );
 };
