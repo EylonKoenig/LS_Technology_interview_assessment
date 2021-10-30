@@ -30,8 +30,8 @@ def create_app():
     from .routes import auth
     app.register_blueprint(auth.auth_bluprint)
 
-    from .routes import user
-    app.register_blueprint(user.user_bluprint)
+    from .routes import employees
+    app.register_blueprint(employees.employees_bluprint)
 
 
     db.init_app(app)

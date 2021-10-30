@@ -33,6 +33,8 @@ def register():
         return Response('Successfully created', status=201)
 
 
+
+
 @auth_bluprint.route('/login',  methods=['POST', 'OPTIONS'])
 @cross_origin(supports_credentials=True)
 def login():
@@ -42,7 +44,7 @@ def login():
         
         if email is None or password is None:
             return Response('Credentials are missing', status=401)
-        user = User.objects(email=email,isActive=True).only('email','firstName','lastName','group','created').first()
+        user = User.objects(email=email,isActive=True).first()
         if user and pbkdf2_sha512.verify(password, user.password):
             access_token = create_access_token(identity=email)
             refresh_token = create_refresh_token(identity=email)
@@ -58,8 +60,17 @@ def refresh():
     return jsonify(user = user, access_token=access_token)
 
 
-# @cross_origin(supports_credentials=True)
-@auth_bluprint.route("/test", methods=["GET"])
-@jwt_required()
-def protected():
-    return jsonify(foo="bar")
+@auth_bluprint.route('/user', methods=['PUT'])
+def update_user():
+    if request.method == 'PUT':
+        content = request.json
+        upd_user = User.objects(email=content['email']).first()
+        User.objects(email=content['email']).update_one(
+          firstName= content.get('firstName') or upd_user.firstName,
+          lastName= content.get('lastName') or upd_user.lastName,
+          email= content.get('email') or upd_user.email,
+          password= pbkdf2_sha512.using(rounds=10000, salt_size=64).hash(content.get('password')) or upd_user.password,
+          group= content.get('group') or upd_user.group,
+          isActive=   upd_user.isActive if 'isActive' not in content else content.get('isActive'),
+        )
+        return Response('Successfully Updated', mimetype="application/json", status=200)
