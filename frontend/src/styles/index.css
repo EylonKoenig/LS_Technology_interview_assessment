@@ -109,6 +109,7 @@ code {
   border: none;
   color: #fff;  
   padding:15px;
+  cursor: pointer;
 }
 
 .person-wrapper {
