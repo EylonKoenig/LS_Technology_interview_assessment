@@ -18,7 +18,10 @@ const EditEmployeeModal = ({ employee, closeModal }) => {
   };
 
   return (
-    <div className="add-employee-wrrap-modal">
+    <div
+      className="add-employee-wrrap-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
       <div className="employee-modal">
         <div className="add-employee">
           <div className="close-button" onClick={() => closeModal()}>
