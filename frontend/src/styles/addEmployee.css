@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation:fadein .5s;
+
 }
 
 .add-employee .close-button {
@@ -38,10 +40,19 @@
   margin-top:40px;
 }
 
- .add-employee-title{
-   padding-left: 45px;
-   text-align: start  ;
- }
+.add-employee-title{
+  padding-left: 45px;
+  text-align: start  ;
+}
+
+@keyframes fadein {
+  from {
+    opacity:0;
+} 
+  to {
+  opacity:1;
+	}
+}
 
 @media (min-width: 768px) {
   .add-employee {
