@@ -69,7 +69,7 @@ def update_user():
           firstName= content.get('firstName') or upd_user.firstName,
           lastName= content.get('lastName') or upd_user.lastName,
           email= content.get('email') or upd_user.email,
-          password= pbkdf2_sha512.using(rounds=10000, salt_size=64).hash(content.get('password')) or upd_user.password,
+          password= upd_user.password if "password" not in content else pbkdf2_sha512.using(rounds=10000, salt_size=64).hash(content.get('password')),
           group= content.get('group') or upd_user.group,
           isActive=   upd_user.isActive if 'isActive' not in content else content.get('isActive'),
         )
