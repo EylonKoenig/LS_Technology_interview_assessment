@@ -7,9 +7,24 @@ import PersonLogo from "../components/PersonLogo";
 const Register = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    password_confirm: "",
+  });
   const [passwordShow, setPasswordShow] = useState(false);
   const [passwordConfimShow, setPasswordConfimShow] = useState(false);
+
+  const INITIAL_VALIDATOIN = {
+    error: "",
+    firstNameNotField: false,
+    lastNameNotField: false,
+    passwordNotField: false,
+    password_confirmNotField: false,
+  };
+  const [validationError, setValidationError] = useState(INITIAL_VALIDATOIN);
 
   const redirectToLogin = () => {
     history.push("/login");
@@ -18,14 +33,40 @@ const Register = () => {
   const handleChange = (e) => {
     const { value, name } = e.target;
     setForm({ ...form, [name]: value });
+    setValidationError(INITIAL_VALIDATOIN);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isFormNotValid()) return;
     const res = await registerUser(form, dispatch);
     if (res === 201) {
       history.push("/employees");
+    } else {
+      setValidationError({
+        ...INITIAL_VALIDATOIN,
+        error: "Email is already registered",
+      });
     }
+  };
+
+  const isFormNotValid = () => {
+    let isNotValid = false;
+    let tempValidation = { ...validationError };
+    for (let key in form) {
+      if (!form[key]) {
+        tempValidation = { ...tempValidation, [`${key}NotField`]: true };
+        isNotValid = true;
+      }
+    }
+    if (form.password !== form.password_confirm) {
+      tempValidation = {
+        ...tempValidation,
+        error: "Password and confirm password don't match",
+      };
+    }
+    setValidationError(tempValidation);
+    return isNotValid;
   };
 
   return (
@@ -38,6 +79,9 @@ const Register = () => {
         <div className="inputs-wrapper">
           <div className="inputs">
             <div className="inputs-label">
+              {validationError.error ? (
+                <div className="color-error">{validationError.error}</div>
+              ) : null}
               <span> Personal Details</span>
             </div>
             <div className="group">
@@ -48,6 +92,9 @@ const Register = () => {
                 required
               />
               <label>First Name</label>
+              {validationError.firstNameNotField ? (
+                <div className="color-error">First Name can't be blank</div>
+              ) : null}
             </div>
 
             <div className="group">
@@ -58,6 +105,9 @@ const Register = () => {
                 required
               />
               <label>Last Name</label>
+              {validationError.lastNameNotField ? (
+                <div className="color-error">Last Name can't be blank</div>
+              ) : null}
             </div>
 
             <div className="group">
@@ -68,6 +118,9 @@ const Register = () => {
                 required
               />
               <label>Email</label>
+              {validationError.emailNotField ? (
+                <div className="color-error">Email can't be blank</div>
+              ) : null}
             </div>
             <div className="inputs-label">
               <span> Password</span>
@@ -88,6 +141,9 @@ const Register = () => {
                 alt="view-svg"
               />
               <label>Password</label>
+              {validationError.passwordNotField ? (
+                <div className="color-error">Password can't be blank</div>
+              ) : null}
             </div>
 
             <div className="group">
@@ -106,6 +162,11 @@ const Register = () => {
                 alt="view-svg"
               />
               <label>Retype Password</label>
+              {validationError.password_confirmNotField ? (
+                <div className="color-error">
+                  Password Retype can't be blank
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="login-buttons">

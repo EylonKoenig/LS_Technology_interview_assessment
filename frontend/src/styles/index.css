@@ -13,6 +13,10 @@ body {
   color:#577BF9
 }
 
+.color-error {
+  color:rgb(255, 0, 0);
+}
+
 .cursor-pointer {
   cursor:pointer;
 }
@@ -78,6 +82,7 @@ code {
   padding-left: 45px;
   padding-right: 45px;
   margin-top: 80px;
+  text-align: start;
 }
 
 .face-svg-wrapper {
@@ -135,7 +140,12 @@ code {
 
 .inputs-label {
   display: flex;
+  flex-direction: column;
   margin-bottom: 35px;
+}
+
+.inputs-label div{
+  padding-bottom: 10px;
 }
 
 .btn-primary {
