@@ -35,6 +35,14 @@ export const removeEmployee = async (id, dispatch) => {
   } catch (err) {}
 };
 
+export const updateEmployee = async (inputData, dispatch) => {
+  await api.put("/employee", inputData);
+  dispatch({
+    type: "UPDATE_EMPLOYEE",
+    payload: inputData,
+  });
+};
+
 function modifyEmployee(employee) {
   employee.id = employee._id.$oid;
   delete employee._id;

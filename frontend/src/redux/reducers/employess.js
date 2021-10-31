@@ -19,6 +19,14 @@ export default function employees_reducer(state = INITIAL_STATE, action) {
         employees: [...state.employees, payload],
       };
 
+    case "UPDATE_EMPLOYEE":
+      return {
+        ...state,
+        employees: state.employees.map((employee) =>
+          employee.id !== payload.id ? employee : payload
+        ),
+      };
+
     case "DELETE_EMPLOYEE":
       return {
         ...state,

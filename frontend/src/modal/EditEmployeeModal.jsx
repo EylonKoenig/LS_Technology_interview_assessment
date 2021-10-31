@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ReactComponent as CloseIcon } from "../styles/svg/x.svg";
-import { postEmployee } from "../common/employee";
+import { updateEmployee } from "../common/employee";
 
 const EditEmployeeModal = ({ employee, closeModal }) => {
   const dispatch = useDispatch();
@@ -12,9 +12,8 @@ const EditEmployeeModal = ({ employee, closeModal }) => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await postEmployee(form, dispatch);
+  const handleSubmit = async () => {
+    await updateEmployee(form, dispatch);
     closeModal();
   };
 
@@ -83,10 +82,7 @@ const EditEmployeeModal = ({ employee, closeModal }) => {
                 </div>
               </div>
               <div className="login-buttons">
-                <button
-                  className="btn-primary"
-                  onClick={(e) => handleSubmit(e)}
-                >
+                <button className="btn-primary" onClick={() => handleSubmit()}>
                   Save
                 </button>
               </div>

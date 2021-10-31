@@ -30,15 +30,15 @@ def get_employees():
 def update_user():
     if request.method == 'PUT':
         content = request.json
-        upd_user = User.objects(email=content['email']).first()
-        Employee.objects(email=content['email']).update_one(
-          firstName= content.get('firstName') or upd_user.firstName,
-          lastName= content.get('lastName') or upd_user.lastName,
-          phone= content.get('phone') or upd_user.phone,
-          address= content.get('address') or upd_user.address,
-          roll= content.get('roll') or upd_user.roll,
+        upd_employee = Employee.objects(id=content.get('id'))
+        Employee.objects(id=content.get('id')).update_one(
+          firstName= content.get('firstName') or upd_employee.firstName,
+          lastName= content.get('lastName') or upd_employee.lastName,
+          phone= content.get('phone') or upd_employee.phone,
+          address= content.get('address') or upd_employee.address,
+          roll= content.get('roll') or upd_employee.roll,
         )
-        return Response('users', mimetype="application/json", status=200)
+        return Response('Successfully Updated!', mimetype="application/json", status=200)
     if request.method == 'POST':
         content = request.json
         employee = Employee(
