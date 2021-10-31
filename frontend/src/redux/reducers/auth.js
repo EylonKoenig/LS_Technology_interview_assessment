@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   isAuthenticated: null,
-  loading: true,
+  loading: false,
   user: null,
 };
 
@@ -35,6 +35,7 @@ export default function auth_reducer(state = INITIAL_STATE, action) {
       };
 
     case "USER_LOGOUT":
+      localStorage.clear();
       return {
         INITIAL_STATE,
       };

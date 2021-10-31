@@ -77,7 +77,7 @@ const Register = () => {
                 name="password"
                 type={passwordShow ? "text" : "password"}
                 onChange={(e) => handleChange(e)}
-                autoComplete={false}
+                autoComplete={"off"}
                 required
               />
               <img
@@ -95,6 +95,7 @@ const Register = () => {
                 type={passwordConfimShow ? "text" : "password"}
                 name="password_confirm"
                 onChange={(e) => handleChange(e)}
+                autoComplete={"off"}
                 required
               />
               <img
