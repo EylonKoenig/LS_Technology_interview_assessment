@@ -21,10 +21,10 @@ class User(db.Document):
 class Employee(db.Document):
     firstName = db.StringField(max_length=60)
     lastName = db.StringField(max_length=60)
-    email = db.EmailField(required=True)
     phone = db.StringField(max_length=60)
     address = db.StringField(max_length=60)
     roll = db.StringField(max_length=60)
     created = db.DateTimeField(default=datetime.datetime.now)
     imageUrl = db.URLField()
+    isActive = db.BooleanField(default=True)
     user = db.ReferenceField(User)
