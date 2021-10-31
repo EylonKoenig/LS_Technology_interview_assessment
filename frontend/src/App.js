@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import "./styles/App.css";
+import "./styles/index.css";
+import "./styles/input.css";
 
-function App() {
+import { loadUser } from "./common/auth";
+
+import PublicRoutes from "./pages/PublicRoutes";
+import PrivateRoutes from "./pages/PrivateRoutes";
+
+const App = () => {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async function fetchUser() {
+      await loadUser(dispatch);
+    })();
+  }, [dispatch]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. bla
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {auth.loading ? (
+        <div></div>
+      ) : (
+        <Switch>
+          <Route
+            path="/"
+            render={() =>
+              auth.isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />
+            }
+          />
+        </Switch>
+      )}
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>EDA3C199-C25E-4E2F-B15E-E209125920F9</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-2">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-3">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.929412 0 0 0 0 0.945098 0 0 0 0 0.968627 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <rect id="path-4" x="0" y="0" width="1182" height="1"></rect>
+        <filter color-interpolation-filters="auto" id="filter-6">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-7">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-8">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-9">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-10">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <path d="M11.121375,9.000375 L17.560875,2.560875 C18.147375,1.974375 18.147375,1.026375 17.560875,0.439875 C16.974375,-0.146625 16.026375,-0.146625 15.439875,0.439875 L9.000375,6.879375 L2.560875,0.439875 C1.974375,-0.146625 1.026375,-0.146625 0.439875,0.439875 C-0.146625,1.026375 -0.146625,1.974375 0.439875,2.560875 L6.879375,9.000375 L0.439875,15.439875 C-0.146625,16.026375 -0.146625,16.974375 0.439875,17.560875 C0.732375,17.853375 1.116375,18.000375 1.500375,18.000375 C1.884375,18.000375 2.268375,17.853375 2.560875,17.560875 L9.000375,11.121375 L15.439875,17.560875 C15.732375,17.853375 16.116375,18.000375 16.500375,18.000375 C16.884375,18.000375 17.268375,17.853375 17.560875,17.560875 C18.147375,16.974375 18.147375,16.026375 17.560875,15.439875 L11.121375,9.000375 Z" id="path-11"></path>
+    </defs>
+    <g id="LS---Internal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-employee" transform="translate(-945.000000, -272.000000)">
+            <rect fill="#F6F7F8" x="0" y="0" width="1440" height="1024"></rect>
+            <g id="table" transform="translate(127.000000, 236.000000)">
+                <g id="bg-2" filter="url(#filter-1)">
+                    <g transform="translate(0.000000, 0.000000)">
+                        <rect id="bg" fill="#FFFFFF" x="8.7892484e-13" y="0" width="1182.01002" height="49"></rect>
+                    </g>
+                </g>
+                <g filter="url(#filter-2)" font-family="Heebo-Regular, Heebo" font-size="14" font-weight="normal" id="Title-2" line-spacing="20">
+                    <g transform="translate(0.000000, 7.000000)">
+                        <text id="Title"></text>
+                    </g>
+                </g>
+                <g id="divider-2" transform="translate(0.000000, 48.000000)" filter="url(#filter-3)">
+                    <g>
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="divider" fill="#EDF1F7" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+            </g>
+            <g id="row-copy" transform="translate(127.000000, 285.000000)">
+                <g id="table" transform="translate(542.000000, 0.000000)">
+                    <g id="bg-2" filter="url(#filter-6)">
+                        <g transform="translate(0.000000, 0.000000)">
+                            <rect id="bg" fill="#FFFFFF" x="2.23077371e-13" y="0" width="300.002543" height="90"></rect>
+                        </g>
+                    </g>
+                    <g filter="url(#filter-7)" id="Title-2">
+                        <g transform="translate(0.000000, 12.857143)"></g>
+                    </g>
+                </g>
+                <g id="table-copy" transform="translate(842.000000, 0.000000)">
+                    <g id="bg-2" filter="url(#filter-8)">
+                        <g transform="translate(0.000000, 0.000000)">
+                            <rect id="bg" fill="#FFFFFF" x="1.60615707e-13" y="0" width="216.001831" height="90"></rect>
+                        </g>
+                    </g>
+                    <g filter="url(#filter-9)" id="Title-2">
+                        <g transform="translate(0.000000, 12.857143)"></g>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-5">
+                <rect id="Rectangle" fill-opacity="0.8" fill="#000000" x="0" y="0" width="1441" height="1024"></rect>
+                <g id="popup" transform="translate(438.000000, 252.000000)">
+                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="566" height="521" rx="3"></rect>
+                    <g id="image" transform="translate(507.000000, 20.000000)" filter="url(#filter-10)">
+                        <g transform="translate(8.999775, 8.999625)">
+                            <mask id="mask-12" fill="white">
+                                <use xlink:href="#path-11"></use>
+                            </mask>
+                            <use id="x" fill="#222B45" xlink:href="#path-11"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

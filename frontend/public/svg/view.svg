@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>037CDBD5-EBBC-450F-8BE8-4C40FF898A73</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.560784 0 0 0 0 0.607843 0 0 0 0 0.701961 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter color-interpolation-filters="auto" id="filter-2">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 0 0.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <path d="M10,8.5 C9.173,8.5 8.5,7.827 8.5,7 C8.5,6.173 9.173,5.5 10,5.5 C10.827,5.5 11.5,6.173 11.5,7 C11.5,7.827 10.827,8.5 10,8.5 M10,3.5 C8.07,3.5 6.5,5.07 6.5,7 C6.5,8.93 8.07,10.5 10,10.5 C11.93,10.5 13.5,8.93 13.5,7 C13.5,5.07 11.93,3.5 10,3.5 M10.2197,11.9976 C5.9137,12.0976 3.1047,8.4146 2.1727,6.9956 C3.1987,5.3906 5.7827,2.1046 9.7807,2.0026 C14.0697,1.8936 16.8947,5.5856 17.8267,7.0046 C16.8017,8.6096 14.2167,11.8956 10.2197,11.9976 M19.8677,6.5026 C19.2297,5.3906 15.7057,-0.1834 9.7297,0.0036 C4.2017,0.1436 0.9867,5.0136 0.1327,6.5026 C-0.0443,6.8106 -0.0443,7.1896 0.1327,7.4976 C0.7617,8.5946 4.1617,13.9996 10.0247,13.9996 C10.1067,13.9996 10.1887,13.9986 10.2707,13.9966 C15.7977,13.8556 19.0137,8.9866 19.8677,7.4976 C20.0437,7.1896 20.0437,6.8106 19.8677,6.5026" id="path-3"></path>
+    </defs>
+    <g id="LS---Internal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sign-in-" transform="translate(-896.000000, -573.000000)">
+            <rect fill="#F6F7F8" x="0" y="0" width="1440" height="1024"></rect>
+            <g id="User-Name-&amp;-Pass" transform="translate(443.000000, 394.000000)">
+                <rect id="Rectangle-Copy-3" stroke="#E6EAEE" fill="#FFFFFF" x="0" y="0" width="555" height="347"></rect>
+                <g id="Form" transform="translate(70.000000, 84.000000)">
+                    <g id="text-field-copy-4" transform="translate(0.000000, 72.000000)">
+                        <g id="field" transform="translate(0.000000, 9.000000)">
+                            <g filter="url(#filter-1)" font-family="Heebo-Regular, Heebo" font-size="15" font-weight="normal" id="Placeholder-2">
+                                <g transform="translate(0.000000, 16.000000)">
+                                    <text id="Placeholder" fill="#8F9BB3">
+                                        <tspan x="0" y="12">Password</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                            <g id="image" transform="translate(383.000000, 14.000000)" filter="url(#filter-2)">
+                                <g transform="translate(2.000000, 5.000000)">
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <use id="view" fill="#222B45" xlink:href="#path-3"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

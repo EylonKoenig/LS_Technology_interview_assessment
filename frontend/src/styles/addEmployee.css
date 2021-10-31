@@ -1,0 +1,66 @@
+.add-employee-wrrap-modal{ 
+  position: relative;
+  z-index: 999;
+}
+
+.employee-modal {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-employee .close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.add-employee {
+  background-color: #fff;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  height:100%;
+}
+
+ div.add-employee > div > div.inputs-wrapper {
+   box-shadow: none;
+ }
+
+ div.add-employee > div > div.inputs-wrapper > div.inputs {
+  margin-top:40px;
+}
+
+ .add-employee-title{
+   padding-left: 45px;
+   text-align: start  ;
+ }
+
+@media (min-width: 768px) {
+  .add-employee {
+    width:60%;
+    height: unset;
+  }
+}
+
+@media (min-width: 1024px) {
+  .add-employee {
+    width:50%;
+    height: unset;
+  }
+}
+
+@media (min-width: 1201px) {
+  .add-employee {
+    width:40%;
+    height: unset;
+  }
+}
+

@@ -1,0 +1,62 @@
+.employees-table-wrapper {
+  width: 90%;
+  margin: 100px auto;
+  text-align: start;
+}
+
+.table-headers{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add-employee{
+  max-height: 45px;
+}
+
+.employees-table{
+  width: 100%;
+  margin-top: 85px;
+  background-color:#fff;
+  padding: 5px;
+  border-radius:3px;   
+  font-size:12px; 
+}
+.employees-table thead tr th{
+  color:#8F9BB3;
+  text-align: start;
+  height:35px;
+}
+
+.employees-table tbody tr td:nth-child(1){
+  max-width: 5%;
+  width: 5%;
+}
+
+
+/* phone label */
+.employees-table tbody tr td:nth-child(4){
+  max-width: 10%;
+  width:10%;
+} 
+
+/* start day label */
+.employees-table tbody tr td:nth-child(7){
+  max-width: 10%;
+  width: 10%;
+} 
+
+.employees-table tbody tr td:nth-child(n+8){
+  text-align: center;
+}
+
+.employees-table tbody tr td svg {
+  cursor: pointer;
+  height:20px;
+}
+
+@media (min-width: 1024px) {
+  .employees-table-wrapper {
+      width: 90%;
+  }
+}
