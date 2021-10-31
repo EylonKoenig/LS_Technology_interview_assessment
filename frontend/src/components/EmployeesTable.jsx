@@ -6,18 +6,34 @@ import { ReactComponent as DeleteIcon } from "../styles/svg/delete.svg";
 
 import { removeEmployee, titles } from "../common/employee";
 import AddEmployeeModal from "../modal/AddEmployeeModal";
+import EditEmployeeModal from "../modal/EditEmployeeModal";
 
 const EmployeesTable = ({ employees }) => {
   const [showAddEmpModal, setShowAddEmpModal] = useState(false);
+
+  const [showEditEmpModal, setShowEditEmpModal] = useState(false);
+  const [employeeToEdit, setEmployeeToEdit] = useState(null);
   const user = useSelector((state) => state.auth.user);
+
   const dispatch = useDispatch();
   const handleDelete = async (employee_id) => {
     removeEmployee(employee_id, dispatch);
+  };
+
+  const handleEdit = (employee) => {
+    setEmployeeToEdit(employee);
+    setShowEditEmpModal(true);
   };
   return (
     <div>
       {showAddEmpModal ? (
         <AddEmployeeModal closeModal={() => setShowAddEmpModal(false)} />
+      ) : null}
+      {showEditEmpModal ? (
+        <EditEmployeeModal
+          employee={employeeToEdit}
+          closeModal={() => setShowEditEmpModal(false)}
+        />
       ) : null}
       <div className="employees-table-wrapper">
         <div className="table-headers">
@@ -54,13 +70,11 @@ const EmployeesTable = ({ employees }) => {
                 ))}
                 {user.group === "user" ? (
                   <>
-                    <td>
-                      <EditIcon style={{ height: "20px" }} />
+                    <td onClick={() => handleEdit(employee)}>
+                      <EditIcon />
                     </td>
                     <td onClick={() => handleDelete(employee.id)}>
-                      <DeleteIcon
-                        style={{ height: "20px", cursor: "pointer" }}
-                      />
+                      <DeleteIcon />
                     </td>
                   </>
                 ) : null}

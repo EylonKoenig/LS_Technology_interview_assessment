@@ -10,7 +10,7 @@ const EmployeesCards = ({ employees }) => {
     <div className="cards-wrapper">
       <div className="cards-headers">
         <h3>Managing Employees</h3>
-        <span class="circle plus"></span>
+        <span className="circle plus"></span>
       </div>
       <div className="cards">
         {employees.map((employee, index) => (

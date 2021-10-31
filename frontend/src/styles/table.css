@@ -36,8 +36,8 @@
 
 /* phone label */
 .employees-table tbody tr td:nth-child(4){
-  max-width: 8%;
-  width:8%;
+  max-width: 10%;
+  width:10%;
 } 
 
 /* start day label */
@@ -46,8 +46,13 @@
   width: 10%;
 } 
 
-.employees-table tbody tr td:nth-child(+8){
+.employees-table tbody tr td:nth-child(n+8){
   text-align: center;
+}
+
+.employees-table tbody tr td svg {
+  cursor: pointer;
+  height:20px;
 }
 
 @media (min-width: 1024px) {
