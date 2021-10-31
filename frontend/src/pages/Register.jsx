@@ -52,7 +52,7 @@ const Register = () => {
 
   const isFormNotValid = () => {
     let isNotValid = false;
-    let tempValidation = { ...validationError };
+    let tempValidation = INITIAL_VALIDATOIN;
     for (let key in form) {
       if (!form[key]) {
         tempValidation = { ...tempValidation, [`${key}NotField`]: true };
@@ -64,6 +64,7 @@ const Register = () => {
         ...tempValidation,
         error: "Password and confirm password don't match",
       };
+      isNotValid = true;
     }
     setValidationError(tempValidation);
     return isNotValid;
