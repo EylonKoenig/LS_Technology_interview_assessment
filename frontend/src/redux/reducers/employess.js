@@ -12,6 +12,20 @@ export default function employees_reducer(state = INITIAL_STATE, action) {
         employees: payload,
         loading: false,
       };
+
+    case "ADD_EMPLOYEE":
+      return {
+        ...state,
+        employees: [...state.employees, payload],
+      };
+
+    case "DELETE_EMPLOYEE":
+      return {
+        ...state,
+        employees: state.employees.filter(
+          (employee) => employee.id !== payload
+        ),
+      };
     default:
       return state;
   }

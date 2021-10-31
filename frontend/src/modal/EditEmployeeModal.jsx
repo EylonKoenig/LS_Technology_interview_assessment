@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ReactComponent as CloseIcon } from "../styles/svg/x.svg";
-import "../styles/addEmployee.css";
 import { postEmployee } from "../common/employee";
 
-const AddEmployeeModal = ({ closeModal }) => {
+const EditEmployeeModal = ({ employee, closeModal }) => {
   const dispatch = useDispatch();
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({ ...employee });
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -34,6 +33,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   <input
                     type="text"
                     name="firstName"
+                    value={form.firstName}
                     onChange={(e) => handleChange(e)}
                     required
                   />
@@ -44,6 +44,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   <input
                     type="text"
                     name="lastName"
+                    value={form.lastName}
                     onChange={(e) => handleChange(e)}
                     required
                   />
@@ -54,6 +55,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   <input
                     type="text"
                     name="phone"
+                    value={form.phone}
                     onChange={(e) => handleChange(e)}
                     required
                   />
@@ -63,6 +65,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   <input
                     name="address"
                     type="text"
+                    value={form.address}
                     onChange={(e) => handleChange(e)}
                     required
                   />
@@ -72,6 +75,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   <input
                     type="text"
                     name="roll"
+                    value={form.roll}
                     onChange={(e) => handleChange(e)}
                     required
                   />
@@ -83,7 +87,7 @@ const AddEmployeeModal = ({ closeModal }) => {
                   className="btn-primary"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  Add
+                  Save
                 </button>
               </div>
             </div>
@@ -94,4 +98,4 @@ const AddEmployeeModal = ({ closeModal }) => {
   );
 };
 
-export default AddEmployeeModal;
+export default EditEmployeeModal;

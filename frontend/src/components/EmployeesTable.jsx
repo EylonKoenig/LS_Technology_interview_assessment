@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/table.css";
 import { ReactComponent as EditIcon } from "../styles/svg/edit.svg";
 import { ReactComponent as DeleteIcon } from "../styles/svg/delete.svg";
 
-import { titles } from "../common/employee";
+import { removeEmployee, titles } from "../common/employee";
 import AddEmployeeModal from "../modal/AddEmployeeModal";
+
 const EmployeesTable = ({ employees }) => {
   const [showAddEmpModal, setShowAddEmpModal] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const handleDelete = async (employee_id) => {
+    removeEmployee(employee_id, dispatch);
+  };
   return (
     <div>
+      {showAddEmpModal ? (
+        <AddEmployeeModal closeModal={() => setShowAddEmpModal(false)} />
+      ) : null}
       <div className="employees-table-wrapper">
         <div className="table-headers">
           <h1>Managing Employees</h1>
@@ -20,7 +28,6 @@ const EmployeesTable = ({ employees }) => {
           >
             + Add Employee
           </button>
-          <AddEmployeeModal />
         </div>
         <table className="employees-table">
           <thead>
@@ -50,8 +57,10 @@ const EmployeesTable = ({ employees }) => {
                     <td>
                       <EditIcon style={{ height: "20px" }} />
                     </td>
-                    <td>
-                      <DeleteIcon style={{ height: "20px" }} />
+                    <td onClick={() => handleDelete(employee.id)}>
+                      <DeleteIcon
+                        style={{ height: "20px", cursor: "pointer" }}
+                      />
                     </td>
                   </>
                 ) : null}
