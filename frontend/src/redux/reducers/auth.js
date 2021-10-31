@@ -33,6 +33,11 @@ export default function auth_reducer(state = INITIAL_STATE, action) {
         isAuthenticated: true,
         loading: false,
       };
+
+    case "USER_LOGOUT":
+      return {
+        INITIAL_STATE,
+      };
     default:
       return state;
   }

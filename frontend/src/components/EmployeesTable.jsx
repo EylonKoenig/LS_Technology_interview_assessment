@@ -7,6 +7,7 @@ import { ReactComponent as DeleteIcon } from "../styles/svg/delete.svg";
 import { removeEmployee, titles } from "../common/employee";
 import AddEmployeeModal from "../modal/AddEmployeeModal";
 import EditEmployeeModal from "../modal/EditEmployeeModal";
+import Header from "./Header";
 
 const EmployeesTable = ({ employees }) => {
   const [showAddEmpModal, setShowAddEmpModal] = useState(false);
@@ -26,6 +27,7 @@ const EmployeesTable = ({ employees }) => {
   };
   return (
     <div>
+      {/* modals */}
       {showAddEmpModal ? (
         <AddEmployeeModal closeModal={() => setShowAddEmpModal(false)} />
       ) : null}
@@ -35,6 +37,8 @@ const EmployeesTable = ({ employees }) => {
           closeModal={() => setShowEditEmpModal(false)}
         />
       ) : null}
+
+      <Header user={user} />
       <div className="employees-table-wrapper">
         <div className="table-headers">
           <h1>Managing Employees</h1>
@@ -45,43 +49,45 @@ const EmployeesTable = ({ employees }) => {
             + Add Employee
           </button>
         </div>
-        <table className="employees-table">
-          <thead>
-            <tr>
-              <th></th>
-              {titles.map((title, index) => (
-                <th key={index}>{title.label}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {employees.map((employee, index) => (
-              <tr key={index}>
-                <td>
-                  <img
-                    src="/svg/login-face.png"
-                    alt="logo"
-                    height="40"
-                    width="40"
-                  />
-                </td>
+        {employees && employees.length ? (
+          <table className="employees-table">
+            <thead>
+              <tr>
+                <th></th>
                 {titles.map((title, index) => (
-                  <td key={index}>{employee[title.key]}</td>
+                  <th key={index}>{title.label}</th>
                 ))}
-                {user.group === "user" ? (
-                  <>
-                    <td onClick={() => handleEdit(employee)}>
-                      <EditIcon />
-                    </td>
-                    <td onClick={() => handleDelete(employee.id)}>
-                      <DeleteIcon />
-                    </td>
-                  </>
-                ) : null}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {employees.map((employee, index) => (
+                <tr key={index}>
+                  <td>
+                    <img
+                      src={`/person_${index + 1}.png`}
+                      alt="employee"
+                      height="40"
+                      width="40"
+                    />
+                  </td>
+                  {titles.map((title, index) => (
+                    <td key={index}>{employee[title.key]}</td>
+                  ))}
+                  {user.group === "user" ? (
+                    <>
+                      <td onClick={() => handleEdit(employee)}>
+                        <EditIcon />
+                      </td>
+                      <td onClick={() => handleDelete(employee.id)}>
+                        <DeleteIcon />
+                      </td>
+                    </>
+                  ) : null}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : null}
       </div>
     </div>
   );

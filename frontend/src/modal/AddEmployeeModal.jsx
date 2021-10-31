@@ -18,7 +18,6 @@ const AddEmployeeModal = ({ closeModal }) => {
     await postEmployee(form, dispatch);
     closeModal();
   };
-
   return (
     <div className="add-employee-wrrap-modal">
       <div className="employee-modal">
