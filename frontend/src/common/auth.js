@@ -30,6 +30,8 @@ export const loadUser = async (dispatch) => {
           payload: response.data.user,
         });
       }
+    } else {
+      dispatch({ type: "LOADING_FALSE" });
     }
   } catch (err) {}
 };

@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   isAuthenticated: null,
-  loading: false,
+  loading: true,
   user: null,
 };
 
@@ -31,6 +31,12 @@ export default function auth_reducer(state = INITIAL_STATE, action) {
         ...state,
         ...payload,
         isAuthenticated: true,
+        loading: false,
+      };
+
+    case "LOADING_FALSE":
+      return {
+        ...state,
         loading: false,
       };
 
